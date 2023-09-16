@@ -1,3 +1,4 @@
+import { document } from "postcss";
 import { Produto } from "./utilidades";
 
 const idsProdutosCarrinhoComQuantidade = {};
@@ -9,27 +10,25 @@ function abrirCarrinho() {
 
 function fecharCarrinho() {
   document.getElementById('carrinho').classList.remove('right-[0px]')
-  document.getElementById('carrinho').classList.add('right-[-375px]')
+  document.getElementById('carrinho').classList.add('right-[-375px]') ;
 };
-function incrementarQuantidadeDeProduto(idProduto) {
-  idsProdutosCarrinhoComQuantidade[idProduto]++;
-  atualizaInformacaoQuantidade(idProduto);
-}
-function decrementarQuantidadeDeProduto(idProduto) {
-  if (idsProdutosCarrinhoComQuantidade[idProduto] > 0) {
-    idsProdutosCarrinhoComQuantidade[idProduto]--;
-    atualizaInformacaoQuantidade(idProduto);
-  }
-}
-function atualizaInformacaoQuantidade(idProduto) {
-  document.getElementById(`quantidade-${idProduto}`).innerText = idsProdutosCarrinhoComQuantidade[idProduto];
-}
 export function inicializarCarrinho() {
   const botaoFecharCarrinho = document.getElementById('fechar-carrinho')
   const botaoAbrirCarrinho = document.getElementById('abrir-carrinho')
   botaoFecharCarrinho.addEventListener('click', fecharCarrinho)
   botaoAbrirCarrinho.addEventListener('click', abrirCarrinho)
+}
 
+function incrementarQuantidadeDeProduto(idProduto) {
+  idsProdutosCarrinhoComQuantidade[idProduto]++;
+  atualizaInformacaoQuantidade(idProduto);
+}
+function decrementarQuantidadeDeProduto(idProduto) {
+      idsProdutosCarrinhoComQuantidade[idProduto]--;
+    atualizaInformacaoQuantidade(idProduto);
+  }
+function atualizaInformacaoQuantidade(idProduto) {
+  document.getElementById(`quantidade-${idProduto}`).innerText = idsProdutosCarrinhoComQuantidade[idProduto];
 }
 export function adicionarAoCarrinho(idProduto) {
   if (idProduto in idsProdutosCarrinhoComQuantidade) {
@@ -39,6 +38,7 @@ export function adicionarAoCarrinho(idProduto) {
   idsProdutosCarrinhoComQuantidade[idProduto] = 1;
   const estoque = Produto.find((p) => p.id === idProduto)
   const containerProdutosCarrinho = document.getElementById('produtos-carrinho')
+  
   const cartaoProdutocarrinho = ` 
   <article class="flex bg-slate-100 rounded-lg p-2 relative">
   
@@ -53,11 +53,20 @@ export function adicionarAoCarrinho(idProduto) {
    <p class="text-green-700 text-lg">$${estoque.preco}</p>
    </div>
    <div class="flex text-slate-950 items-end absolute bottom-0 right-2">
-   <button onclick="decrementarQuantidadeDeProduto(${estoque.id})">-</button>
+   <button id="decrementar-Quantidade(${estoque.id})">-</button>
    <p id='quantidade-${estoque.id}' class='ml-2'>${idsProdutosCarrinhoComQuantidade[estoque.id]}</p>
-   <button class='ml-2'  onclick="incrementarQuantidadeDeProduto(${estoque.id})">+</button>
+   <button class='ml-2'  id="incrementar-Quantidade(${estoque.id})">+</button>
    </div>
    </article>`;
-   containerProdutosCarrinho.innerHTML += cartaoProdutocarrinho
+   containerProdutosCarrinho.innerHTML += cartaoProdutocarrinho;
+
+  
+   document
+  .getElementById(`decrementar-Quantidade${estoque.id}`)
+  .addEventListener("click", () => decrementarQuantidadeDeProduto(estoque.id));
+document
+  .getElementById(`incrementar-Quantidade${estoque.id}`)
+  .addEventListener("click", () => incrementarQuantidadeDeProduto(estoque.id));
+
   }
   

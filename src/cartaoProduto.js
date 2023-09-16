@@ -39,6 +39,6 @@ export function renderizarCatalogo() {
     }
     for (const catalogoProduto of Produto){
     document.getElementById(`adicionar-${catalogoProduto.id}`)
-    .addEventListener('click' , ()=> adicionarAoCarrinho(catalogoProduto.id));
+    .addEventListener('click' , () => adicionarAoCarrinho(catalogoProduto.id));
     }
 }
