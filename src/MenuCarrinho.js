@@ -1,6 +1,6 @@
-import { Produto } from "./utilidades";
+import { Produto,  salvarLocalStorage, lerLocalStorage} from "./utilidades";
 
-const idsProdutosCarrinhoComQuantidade = {};
+const idsProdutosCarrinhoComQuantidade = lerLocalStorage('carrinho') ?? {};
 
 function abrirCarrinho() {
   document.getElementById('carrinho').classList.add('right-[0px]')
@@ -20,20 +20,27 @@ export function inicializarCarrinho() {
 }
 
 function removerDoCarrinho(idProduto) {
-  delete idsProdutosCarrinhoComQuantidade[idProduto]
+  delete idsProdutosCarrinhoComQuantidade[idProduto];
+  salvarLocalStorage('carrinho' , idsProdutosCarrinhoComQuantidade);
+  atualizarPrecoCarrinho();
   renderizarProdutosCarrinho()
 }
 
 function incrementarQuantidadeDeProduto(idProduto) {
   idsProdutosCarrinhoComQuantidade[idProduto]++;
+  salvarLocalStorage('carrinho' , idsProdutosCarrinhoComQuantidade);
+  atualizarPrecoCarrinho();
   atualizaInformacaoQuantidade(idProduto);
 }
+
 function decrementarQuantidadeDeProduto(idProduto) {
   if(idsProdutosCarrinhoComQuantidade[idProduto]=== 1){
     removerDoCarrinho(idProduto);
     return;
   }
   idsProdutosCarrinhoComQuantidade[idProduto]--;
+  salvarLocalStorage('carrinho' , idsProdutosCarrinhoComQuantidade);
+  atualizarPrecoCarrinho()
   atualizaInformacaoQuantidade(idProduto);
 }
 
@@ -99,7 +106,7 @@ function DesenharProdutoNocarrinho(idProduto){
     .addEventListener("click", () => removerDoCarrinho(estoque.id));
 
 }
-function renderizarProdutosCarrinho(){
+export function renderizarProdutosCarrinho(){
   const containerProdutosCarrinho = document.getElementById('produtos-carrinho');
   containerProdutosCarrinho.innerHTML = '';
   
@@ -114,8 +121,18 @@ export function adicionarAoCarrinho(idProduto) {
     return;
   }
   idsProdutosCarrinhoComQuantidade[idProduto] = 1;
+  salvarLocalStorage('carrinho' , idsProdutosCarrinhoComQuantidade);
   DesenharProdutoNocarrinho(idProduto)
+  atualizarPrecoCarrinho()
 }
 
-
+export function atualizarPrecoCarrinho() {
+  const precoCarrinho = document.getElementById("preco-total");
+  let precoTotalCarrinho = 0;
+  for(const ideProdutoNoCarrinho in idsProdutosCarrinhoComQuantidade){
+    precoTotalCarrinho += Produto.find(p => p.id === ideProdutoNoCarrinho).preco 
+    * idsProdutosCarrinhoComQuantidade[ideProdutoNoCarrinho]
+  }
+  precoCarrinho.innerText = `Total: $${precoTotalCarrinho}`;
+}
   
