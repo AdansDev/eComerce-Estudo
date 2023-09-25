@@ -11,7 +11,7 @@ export function renderizarCatalogo() {
             p-2 
             flex flex-col
             justify-between
-            group
+            group ${catalogoProduto.feminino ? "feminino" : "masculino"}
             shadow-2xl
             shadow-slate-600
             rounded-lg

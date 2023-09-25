@@ -40,8 +40,54 @@ justify-between
       <button><i class="fa-solid fa-user"></i></button>
     </div>
   </header>
-  <main>
+
+  <main class="flex flex-col items-center">
+
+    <section id="filtros" class="p-10 flex">
+
+      <div class="px-2">
+        <input id="Exibir-todos" type="radio" name="filtro" class="peer hidden" checked />
+
+        <label for="Exibir-todos" class="peer-checked:bg-slate-900
+        peer-checked:text-slate-300
+        peer-checked:font-bold
+        p-2
+        rounded-xl
+        select-none
+        cursor-pointer
+        ">Todos</label>
+      </div>
+
+
+      <div class="px-2">
+        <input id="Exibir-masculino" type="radio" name="filtro" class="peer hidden" />
+
+        <label for="Exibir-masculino" class="peer-checked:bg-slate-900
+        peer-checked:text-slate-300
+        peer-checked:font-bold
+        p-2
+        rounded-xl
+        select-none
+        cursor-pointer
+        ">Masculino</label>
+      </div>
+
+
+      <div class="px-2">
+        <input id="Exibir-feminino" type="radio" name="filtro" class="peer hidden" />
+        <label for="Exibir-feminino" class="peer-checked:bg-slate-900
+        peer-checked:text-slate-300
+        peer-checked:font-bold
+        p-2
+        rounded-xl
+        select-none
+        cursor-pointer
+        ">Feminino</label>
+      </div>
+    </section>
+
     <section id="container-produto" class=" flex flex-wrap"> </section>
+
   </main>
   <script type="module" src="./script.js"></script>
 </body>
