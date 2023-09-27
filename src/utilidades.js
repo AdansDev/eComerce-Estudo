@@ -4,7 +4,7 @@
     marca: "Insider",
     preco: 70,
     Imagem: "bone_Masculino.jpg",
-    feminino: "false"
+    feminino: false
 },
 {
     id:"2",
@@ -12,7 +12,7 @@
     marca: "Insider",
     preco: 110,
     Imagem: "calca_Masculino.jpg",
-    feminino: "false"
+    feminino: false
 },
 {
     id:"3",
@@ -20,7 +20,7 @@
     marca: "Zara",
     preco: 200,
     Imagem: "moleton_Masculino.jpg",
-    feminino: "false"
+    feminino: false
 },
 {
     id:"4",
@@ -28,7 +28,7 @@
     marca: "Insider",
     preco: 210,
     Imagem: "pantalona_Feminino.jpg",
-    feminino: "true"
+    feminino: true
 },
 {
     id:"5",
@@ -36,7 +36,7 @@
     marca: "Insider",
     preco: 180,
     Imagem: "saia_feminino.png",
-    feminino: "true"
+    feminino: true
 
 },
 {
@@ -45,7 +45,7 @@
     marca: "Insider",
     preco: 55,
     Imagem: "SegundaPele_Masculino.jpg",
-    feminino: "false"
+    feminino: false
 },
 {
     id:"7",
@@ -53,7 +53,7 @@
     marca: "Insider",
     preco: 78,
     Imagem: "short_feminino.png",
-    feminino: "true"
+    feminino: true
 },
 {
     id:"8",
@@ -61,7 +61,7 @@
     marca: "Insider",
     preco: 310,
     Imagem: "sobretudo_Feminino.png",
-    feminino: "true"
+    feminino: true
 },
 ]
 
