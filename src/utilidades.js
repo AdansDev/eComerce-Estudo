@@ -71,3 +71,52 @@ export function salvarLocalStorage(chave , informacao){
 export function lerLocalStorage(chave){
   return  JSON.parse(localStorage.getItem(chave));
 }
+ export function DesenharProdutoChekout(idProduto , idContainerHTML , quantidadeProduto){
+    const estoque = Produto.find((p) => p.id === idProduto)
+    const containerProdutosCarrinho =
+     document.getElementById(idContainerHTML)
+  
+  
+    const elementoArticle = document.createElement("article"); //<article></article>
+    const articleClasses = [
+      "flex",
+      "bg-stone-300",
+      "rounded-lg",
+      "p-1",
+      "relative",
+      "mb-2",
+    ];
+    for (const articleClass of articleClasses) {
+      elementoArticle.classList.add(articleClass);
+    } //<articleclass="flex bg-slate-100 rounded-lg p-2 relative"></articleclass=>
+  
+    const cartaoProdutocarrinho = `   
+    
+  
+     <img src="Assets/images/${estoque.Imagem}" alt="carrinho: ${estoque.nome}" class="h-24 rounded-lg" />
+     
+     <div class="py-2 mx-4 flex flex-col justify-between">
+     <p class="text-slate-900 text-sm">${estoque.nome}</p>
+     <p class="text-slate-400 text-xs">Tamanho M</p>
+     <p class="text-green-700 text-lg">$${estoque.preco}</p>
+     </div>
+  
+     <div class="flex text-slate-950 items-end absolute bottom-0 right-2">  
+        <p id='quantidade-${estoque.id}' class='ml-2'>${quantidadeProduto}</p>      
+     </div>
+     `;
+     //<articleclass="flex bg-slate-100 rounded-lg p-2 relative">codigo do cartão do produto</articleclass=>
+     elementoArticle.innerHTML = cartaoProdutocarrinho
+    containerProdutosCarrinho.appendChild (elementoArticle)
+  
+  
+  
+  }
+  export function renderizarProdutosCarrinho(){
+    const containerProdutosCarrinho = document.getElementById('produtos-carrinho');
+    containerProdutosCarrinho.innerHTML = '';
+    
+    for( const idProduto in idsProdutosCarrinhoComQuantidade){
+      DesenharProdutoNocarrinho(idProduto)
+    }
+  }
