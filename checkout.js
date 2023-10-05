@@ -10,4 +10,11 @@ function mostrarProdutosCheckout() {
     );
   }
 }
-mostrarProdutosCheckout()
+function finalizarCompra(evento){
+evento.preventDefault();
+window.location.href = window.location.origin + "/pedidos.html";
+}
+
+mostrarProdutosCheckout();
+
+document.addEventListener('submit' , (evento) => finalizarCompra(evento))
