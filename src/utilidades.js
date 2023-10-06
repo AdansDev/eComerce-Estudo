@@ -71,6 +71,9 @@ export function salvarLocalStorage(chave , informacao){
 export function lerLocalStorage(chave){
   return  JSON.parse(localStorage.getItem(chave));
 }
+export function apagarDoLocalStorage(chave){
+  localStorage.removeItem(chave)
+}
  export function DesenharProdutoChekout(idProduto , idContainerHTML , quantidadeProduto){
     const estoque = Produto.find((p) => p.id === idProduto)
     const containerProdutosCarrinho =
