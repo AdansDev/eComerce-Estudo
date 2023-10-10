@@ -88,6 +88,7 @@ export function apagarDoLocalStorage(chave){
       "p-1",
       "relative",
       "mb-2",
+      'w-96',
     ];
     for (const articleClass of articleClasses) {
       elementoArticle.classList.add(articleClass);

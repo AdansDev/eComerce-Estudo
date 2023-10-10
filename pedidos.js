@@ -1,23 +1,27 @@
 import { lerLocalStorage, DesenharProdutoChekout } from "./src/utilidades";
 
 function criarPedidoHistorico(pedidoComData) {
-    const elementoPedido = ` <p class= 'text-xl text-bold'>${pedidoComData.dataPedido}</p>
-    <section id= 'container-produto-${pedidoComData.dataPedido}'></section>
+  const elementoPedido = ` <p class= 'text-xl text-bold my-4'>${new Date(
+    pedidoComData.dataPedido
+  ).toLocaleDateString("pt-BR", { hour: "2-digit", minute: "2-digit" })}</p>
+    <section id= 'container-produto-${pedidoComData.dataPedido}' 
+    class= 'bg-slate-400 p-3 rounded-md' ></section>
      `;
-    const main = document.getElementsByTagName('main')[0];
-    main.innerHTML += elementoPedido
-    for (const idProduto in pedidoComData.pedido) {
-        DesenharProdutoChekout(
-            idProduto,
-            `container-produto-${pedidoComData.dataPedido}`,
-            pedidoComData.dataPedido[idProduto])
-    };
-
+  const main = document.getElementsByTagName("main")[0];
+  main.innerHTML += elementoPedido;
+  for (const idProduto in pedidoComData.pedido) {
+    DesenharProdutoChekout(
+      idProduto,
+      `container-produto-${pedidoComData.dataPedido}`,
+      pedidoComData.dataPedido[idProduto]
+    );
+  }
 }
-function renderizarHistoricoPedidos(){
-    const historico =lerLocalStorage('historico');
-    for(const pedidoComData of historico){
-        criarPedidoHistorico(pedidoComData)
-    }
+function renderizarHistoricoPedidos() {
+  const historico = lerLocalStorage("historico");
+  for (const pedidoComData of historico) {
+    criarPedidoHistorico(pedidoComData);
+  }
 }
 
+renderizarHistoricoPedidos();

@@ -2,9 +2,8 @@ import { adicionarAoCarrinho } from "./MenuCarrinho";
 import { Produto } from "./utilidades";
 
 export function renderizarCatalogo() {
-
-    for (const catalogoProduto of Produto) {
-        const cartaoProduto = `<div
+  for (const catalogoProduto of Produto) {
+    const cartaoProduto = `<div
          class="border-solid
             w-48
             m-2
@@ -34,11 +33,11 @@ export function renderizarCatalogo() {
          </i>
          </button>
         </div>`;
-        document.getElementById("container-produto").innerHTML += cartaoProduto;
-                
-    }
-    for (const catalogoProduto of Produto){
-    document.getElementById(`adicionar-${catalogoProduto.id}`)
-    .addEventListener('click' , () => adicionarAoCarrinho(catalogoProduto.id));
-    }
+    document.getElementById("container-produto").innerHTML += cartaoProduto;
+  }
+  for (const catalogoProduto of Produto) {
+    document
+      .getElementById(`adicionar-${catalogoProduto.id}`)
+      .addEventListener("click", () => adicionarAoCarrinho(catalogoProduto.id));
+  }
 }

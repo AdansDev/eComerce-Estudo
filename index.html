@@ -1,94 +1,118 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-
-<body>
-  <section id="carrinho" class="
-fixed top-0
-right-[-375px] 
-bg-gray-900
-h-screen w-[375px]
-text-slate-300
-duration-200 border-l 
-flex
-flex-col
-justify-between
-">
-    <div id="cabecalho-carrinho" class="flex justify-between mx-4">
-      <p>Meu Carrinho</p>
-      <button id="fechar-carrinho"><i class="fa-solid fa-circle-xmark"></i></button>
-    </div>
-    <section id="produtos-carrinho" class="h-3/5 overflow-y-auto flex flex-col gap-2">
+  <body>
+    <section
+      id="carrinho"
+      class="fixed top-0 right-[-375px] bg-gray-900 h-screen w-[375px] text-slate-300 duration-200 border-l flex flex-col justify-between"
+    >
+      <div id="cabecalho-carrinho" class="flex justify-between mx-4">
+        <p>Meu Carrinho</p>
+        <button id="fechar-carrinho">
+          <i class="fa-solid fa-circle-xmark"></i>
+        </button>
+      </div>
+      <section
+        id="produtos-carrinho"
+        class="h-3/5 overflow-y-auto flex flex-col gap-2"
+      ></section>
+      <p
+        id="preco-total"
+        class="bg-slate-200 text-green-900 pl-5 rounded-sm"
+      ></p>
+      <button
+        id="finalizar-compra"
+        class="bg-slate-200 text-slate-900 p-1 hover:bg-slate-700 hover:text-slate-200"
+      >
+        Finalizar Compra
+      </button>
     </section>
-    <p id="preco-total" class="bg-slate-200 text-green-900 pl-5 rounded-sm"></p>
-    <button  id="finalizar-compra" class="bg-slate-200 text-slate-900 p-1  hover:bg-slate-700 hover:text-slate-200">Finalizar Compra</button>
-  </section>
-  <header class="flex bg-gray-700 p-2 justify-between z-10">
-    <img class="h-10" src="Assets/images/Logo Ross.jpg
-    " alt="Logo Ross">
-    <div class="text-slate-300 flex gap-2 items-end mx-2 ">
-      <button id="abrir-carrinho"><i class="fa-solid fa-cart-shopping"></i></button>
-      <button><i class="fa-solid fa-user"></i></button>
-    </div>
-  </header>
-
-  <main class="flex flex-col items-center">
-
-    <section id="filtros" class="p-10 flex">
-
-      <div class="px-2">
-        <input id="Exibir-todos" type="radio" name="filtro" class="peer hidden" checked />
-
-        <label for="Exibir-todos" class="peer-checked:bg-slate-900
-        peer-checked:text-slate-300
-        peer-checked:font-bold
-        p-2
-        rounded-xl
-        select-none
-        cursor-pointer
-        ">Todos</label>
+    <header class="flex bg-gray-700 p-2 justify-between z-10">
+      <a href="/">
+        <img
+        class="h-10"
+        src="Assets/images/Logo Ross.jpg"
+        alt="Logo Ross"
+        />
+      </a>
+      <div class="text-slate-300 flex gap-2 items-end mx-2">
+        <button id="abrir-carrinho">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </button>
+        <a href="/pedidos.html">
+          <button><i class="fa-solid fa-user"></i></button>
+        </a>
       </div>
+    </header>
 
+    <main class="flex flex-col items-center">
+      <section id="filtros" class="p-10 flex">
+        <div class="px-2">
+          <input
+            id="Exibir-todos"
+            type="radio"
+            name="filtro"
+            class="peer hidden"
+            checked
+          />
 
-      <div class="px-2">
-        <input id="Exibir-masculino" type="radio" name="filtro" class="peer hidden" />
-        <label for="Exibir-masculino" class="peer-checked:bg-slate-900
-        peer-checked:text-slate-300
-        peer-checked:font-bold
-        p-2
-        rounded-xl
-        select-none
-        cursor-pointer
-        ">Masculino</label>
-      </div>
+          <label
+            for="Exibir-todos"
+            class="peer-checked:bg-slate-900 peer-checked:text-slate-300 peer-checked:font-bold p-2 rounded-xl select-none cursor-pointer"
+            >Todos</label
+          >
+        </div>
 
+        <div class="px-2">
+          <input
+            id="Exibir-masculino"
+            type="radio"
+            name="filtro"
+            class="peer hidden"
+          />
+          <label
+            for="Exibir-masculino"
+            class="peer-checked:bg-slate-900 peer-checked:text-slate-300 peer-checked:font-bold p-2 rounded-xl select-none cursor-pointer"
+            >Masculino</label
+          >
+        </div>
 
-      <div class="px-2">
-        <input id="Exibir-feminino" type="radio" name="filtro" class="peer hidden" />
-        <label for="Exibir-feminino" class="peer-checked:bg-slate-900
-        peer-checked:text-slate-300
-        peer-checked:font-bold
-        p-2
-        rounded-xl
-        select-none
-        cursor-pointer
-        ">Feminino</label>
-      </div>
-    </section>
+        <div class="px-2">
+          <input
+            id="Exibir-feminino"
+            type="radio"
+            name="filtro"
+            class="peer hidden"
+          />
+          <label
+            for="Exibir-feminino"
+            class="peer-checked:bg-slate-900
+             peer-checked:text-slate-300 
+             peer-checked:font-bold 
+             p-2
+             rounded-xl 
+             select-none 
+             cursor-pointer"
+            >Feminino</label
+          >
+        </div>
+      </section>
 
-    <section id="container-produto" class=" flex flex-wrap"> </section>
-
-  </main>
-  <script type="module" src="./script.js"></script>
-</body>
-
+      <section id="container-produto" class="flex flex-wrap"></section>
+    </main>
+    <script type="module" src="./script.js"></script>
+  </body>
 </html>

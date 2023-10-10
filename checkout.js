@@ -1,4 +1,9 @@
-import { DesenharProdutoChekout, lerLocalStorage, apagarDoLocalStorage, salvarLocalStorage } from "./src/utilidades";
+import {
+  DesenharProdutoChekout,
+  lerLocalStorage,
+  apagarDoLocalStorage,
+  salvarLocalStorage,
+} from "./src/utilidades";
 
 function mostrarProdutosCheckout() {
   const idsProdutosCarrinhoComQuantidade = lerLocalStorage("carrinho") ?? {};
@@ -10,25 +15,25 @@ function mostrarProdutosCheckout() {
     );
   }
 }
-function finalizarCompra(evento){
-evento.preventDefault();
- const idsProdutosCarrinhoComQuantidade = lerLocalStorage("carrinho") ?? {};
- if(Object.keys(idsProdutosCarrinhoComQuantidade).length === 0){
-  return;
- }
-const dataAtual = new Date();
-const pedidoFeito = {
-  dataPedido: dataAtual,
-  pedido: idsProdutosCarrinhoComQuantidade
-}
-const historicoDePedidos = lerLocalStorage('historico') ?? []
-const historicoDePedidosAtualizado =[pedidoFeito, ...historicoDePedidos];
+function finalizarCompra(evento) {
+  evento.preventDefault();
+  const idsProdutosCarrinhoComQuantidade = lerLocalStorage("carrinho") ?? {};
+  if (Object.keys(idsProdutosCarrinhoComQuantidade).length === 0) {
+    return;
+  }
+  const dataAtual = new Date();
+  const pedidoFeito = {
+    dataPedido: dataAtual,
+    pedido: idsProdutosCarrinhoComQuantidade,
+  };
+  const historicoDePedidos = lerLocalStorage("historico") ?? [];
+  const historicoDePedidosAtualizado = [pedidoFeito, ...historicoDePedidos];
 
-salvarLocalStorage('historico' , historicoDePedidosAtualizado)
-apagarDoLocalStorage('carrinho')
-window.location.href = window.location.origin + "/pedidos.html";
+  salvarLocalStorage("historico", historicoDePedidosAtualizado);
+  apagarDoLocalStorage("carrinho");
+  window.location.href = window.location.origin + "/pedidos.html";
 }
 
 mostrarProdutosCheckout();
 
-document.addEventListener('submit' , (evento) => finalizarCompra(evento))
+document.addEventListener("submit", (evento) => finalizarCompra(evento));
