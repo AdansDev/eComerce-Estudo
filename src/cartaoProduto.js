@@ -1,7 +1,7 @@
 import { adicionarAoCarrinho } from "./MenuCarrinho";
 import { Produto } from "./utilidades";
 
-export function renderizarCatalogo() {
+ export function renderizarCatalogo() {
   for (const catalogoProduto of Produto) {
     const cartaoProduto = `<div
          class="border-solid
