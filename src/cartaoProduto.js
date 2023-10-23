@@ -1,3 +1,4 @@
+// readMe03
 import { adicionarAoCarrinho } from "./MenuCarrinho";
 import { Produto } from "./utilidades";
 
@@ -10,7 +11,7 @@ import { Produto } from "./utilidades";
             p-2 
             flex flex-col
             justify-between
-            group ${catalogoProduto.feminino ? "feminino" : "masculino"}
+            group ${catalogoProduto.feminino  ? "feminino" : "masculino"}
             shadow-2xl
             shadow-slate-600
             rounded-lg

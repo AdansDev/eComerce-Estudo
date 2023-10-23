@@ -45,7 +45,14 @@ read 01 - para começar um projeto acesse  https://vitejs.dev/guide/
             index.html
             style.css   
 
-readMe02    presssione "!" , o VSCode ira completar com a estrutura basica 
+readMe02    presssione "!" , o VSCode ira completar com a estrutura basica
             do início do projeto
-            mude a linguagem de "en" para "PT-br"    
+            mude a linguagem de "en" para "PT-br"   
+
+readMe03     a linha 2 importa uma função essencial de um arquivo externo
+             que sera essencial para a linha 42
+             a linha 5 é uma função que tem por finalidade buscar todos
+             os elementos do BD, para isso cria-se uma Const "catalogoProduto" dentro da função de looping "for" dizendo 
+             de onde deve busrcar os arquivos, no caso, a const "produto"
+             do aqruivo utilidades
 
