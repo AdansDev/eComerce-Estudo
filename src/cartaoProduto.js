@@ -7,7 +7,7 @@ import { Produto } from "./utilidades";
     const cartaoProduto = `<div
          class="border-solid
             w-48
-            m-2
+            m-2  
             p-2 
             flex flex-col
             justify-between

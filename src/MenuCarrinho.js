@@ -2,6 +2,8 @@ import { Produto,  salvarLocalStorage, lerLocalStorage} from "./utilidades";
 
 const idsProdutosCarrinhoComQuantidade = lerLocalStorage('carrinho') ?? {};
 
+// readMe06 L108
+
 function abrirCarrinho() {
   document.getElementById('carrinho').classList.add('right-[0px]')
   document.getElementById('carrinho').classList.remove('right-[-375px]')
